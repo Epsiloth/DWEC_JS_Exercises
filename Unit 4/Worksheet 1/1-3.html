@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script type = "text/javascript">
+			let timeStart = Date.now();
+                  function hello() {
+                     alert("Click!");
+                  }
+                  function position(e){
+                  	let x = e.clientX;
+                  	let y = e.clientY;
+                  	coor = x + ", " + y;
+                  	document.getElementById("demo").innerHTML = coor;
+                  }
+                  function load(){
+                  	timeLoading = Date.now() - timeStart;
+                  	document.getElementById("load").innerHTML = "Time loading: " + timeLoading;
+                  }
+            </script> 
+	</head>
+	<body onclick="hello()" onmousemove="position(event)" onload="load()">
+		<p id="load"></p>
+		<p id="demo"></p>
+	</body>
+</html>

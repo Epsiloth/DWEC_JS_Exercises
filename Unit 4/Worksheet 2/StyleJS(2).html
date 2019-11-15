@@ -1,0 +1,48 @@
+<html>
+<head>
+	<script>
+		var mode1;
+		var mode2;
+
+		function getModes(){
+			mode1 = document.getElementById("mode1");
+			console.log(mode1);
+			mode2 = document.getElementById("mode2");
+			console.log(mode2);
+		}
+
+		function enableMode1(){
+			mode2.disabled = true;
+			mode1.disabled = false;
+			console.log("Mode 1 engaged.");
+		}
+
+		function enableMode2(){
+			mode1.disabled = true;
+			mode2.disabled = false;
+			console.log("Mode 2 engaged.");
+		}
+	</script>
+	<link type="text/css" href="mode2.css" rel="stylesheet" id="mode2"/>
+	<link type="text/css" href="mode1.css" rel="stylesheet" id="mode1"/>
+</head>
+<body onload="getModes()">
+	<nav>
+		<a id="btn_mode1" href="#" onclick="enableMode1()">Mode 1</a> | <a id="btn_mode2" href="#" onclick="enableMode2()">Mode 2</a>
+	</nav>
+	<h2>JS with style</h2>
+	<p>
+		Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It's not a story the Jedi would tell you. 
+	</p>
+	<p>
+		It's a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. 
+	</p>
+	<p>
+		He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. 
+	</p>
+	<p>
+		Ironic. He could save others from death, but not himself.
+	</p>
+
+</body>
+</html>

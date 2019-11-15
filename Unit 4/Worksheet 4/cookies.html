@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <script>
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      function checkCookie() {
+        let username = getCookie("username");
+        let background = getCookie("background");
+        let paragraph = getCookie("paragraph");
+        let fontsize = getCookie("fontsize");
+        let body = document.getElementsByTagName("body")[0];
+        if ((username != "" && username != null) && (background != "" && background != null) && (paragraph != "" && paragraph != null) && (fontsize != "" && fontsize != null)) {
+          body.style.backgroundColor=background;
+          body.style.fontSize=fontsize;
+          document.getElementById("message").innerHTML="Hello, " + username + "!";
+          document.getElementById("message").style.backgroundColor=paragraph;
+        } else {
+          if(username == ""){
+            username = prompt("Please enter your name:", "");
+          } 
+          if(background == ""){
+            background = prompt("Please enter your desired background color:", "");
+          } 
+          if(paragraph == ""){
+            paragraph = prompt("Please enter your desired paragraph color:", "");
+          }
+          if(fontsize == ""){
+            fontsize = prompt("Please enter your desired font size:", "");
+          }
+            let d = new Date();
+            d.setTime(d.getTime() + (5*60000));
+            document.cookie = "username="+username+"; expires="+d.toString()+"; path=C:\\Users\\epsil\\Desktop\\Informática\\2DAW\\DWEC\\Unit 4\\Worksheet 4;";
+            document.cookie = "background="+background+"; expires=; path=C:\\Users\\epsil\\Desktop\\Informática\\2DAW\\DWEC\\Unit 4\\Worksheet 4;";
+            document.cookie = "paragraph="+paragraph+"; expires=; path=C:\\Users\\epsil\\Desktop\\Informática\\2DAW\\DWEC\\Unit 4\\Worksheet 4;";
+            document.cookie = "fontsize="+fontsize+"; expires=; path=C:\\Users\\epsil\\Desktop\\Informática\\2DAW\\DWEC\\Unit 4\\Worksheet 4;";
+            
+            body.style.backgroundColor=background;
+            body.style.fontSize=fontsize;
+            document.getElementById("message").innerHTML="Hello, " + username + "!";
+            document.getElementById("message").style.backgroundColor=paragraph;
+        }
+      }
+
+      function deleteCookie(cname){
+        document.cookie = cname+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=C:\\Users\\epsil\\Desktop\\Informática\\2DAW\\DWEC\\Unit 4\\Worksheet 4;";
+      }
+    </script>
+  </head>
+  <body onload="checkCookie()">
+    <a href="#" onclick="deleteCookie('username')">Forget username</a>
+    <p id="message"></p>
+  </body>
+</html>

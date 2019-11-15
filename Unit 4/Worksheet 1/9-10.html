@@ -1,0 +1,28 @@
+<hml>
+	<head>
+		<script>
+			let isDragged = false;
+			let image = "";
+			let x, y, offsetX, offsetY;
+
+			function clicking(e){
+				isDragged=!isDragged;
+				offsetX = x - e.target.hspace;
+				offsetY = y - e.target.vspace;
+				imagen = event.target;
+			}
+
+			function dragImage(e){
+				x = e.clientX;
+				y = e.clientY;
+				if(isDragged){
+						imagen.hspace = x-offsetX;
+						imagen.vspace = y-offsetY;	
+				}
+			}
+		</script>
+	</head>
+	<body onmousemove="dragImage(event)">
+		<img src='C:\Users\epsil\Pictures\duck.png' onclick="clicking(event)" draggable="false">
+	</body>
+</hml>

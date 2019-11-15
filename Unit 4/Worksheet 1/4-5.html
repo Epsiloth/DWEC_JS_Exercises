@@ -1,0 +1,38 @@
+<html>
+<head>
+	<script>
+		function printCanvas(){
+			canvas = [];
+			for(let i=0;i<100;i++){
+				row = [];
+				for(let j=0;j<100;j++){
+					row.push(" ");
+				}
+				canvas.push(row);
+			}
+			let print = "";
+			for(let i=0;i<canvas.length;i++){
+				print += "<tr>";
+				for(let j=0;j<row.length;j++){
+					print += "<td onmousemove=\"paint(event)\">"+canvas[i][j]+"</td>";
+				}
+				print += "</tr>";
+			}
+			document.getElementById("canvas").innerHTML = print;
+		}
+		function paint(e){
+			if(e.ctrlKey){
+				e.target.style.backgroundColor = "red";
+			}else if(e.shiftKey){
+				e.target.style.backgroundColor = "blue";
+			}else if(e.altKey){
+				e.target.style.backgroundColor = "white";
+			}
+			
+		}
+	</script>
+</head>
+<body onload="printCanvas()">
+	<table id="canvas" ></table>
+</body>
+</html>

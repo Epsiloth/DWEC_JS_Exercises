@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+<body>
+	<button type="button" id="mybutton">Add Element</button>
+	<ul id="lista">
+		<li>Elemento</li>
+		<li>Elemento</li>
+	</ul>
+	<script>
+		var body = document.body;
+		function addElement(){
+			var lista = document.getElementById("lista");
+			lista.innerHTML += "<li>Elemento</li>";
+		}
+
+		var button = document.getElementById("mybutton");
+		button.onclick = addElement;
+	</script>
+</body>
+</html>
